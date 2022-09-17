@@ -1,0 +1,19 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {6ea3a80e-2936-43be-8725-2e95896da9a4} = s 'ProcessMoniker class'
+		{
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			TypeLib = s '{97a86fc5-ffef-4e80-88a0-fa3d1b438075}'
+			Version = s '1.0'
+		}
+	}
+	process = s 'Process Moniker Class'
+	{
+		CLSID = s '{6ea3a80e-2936-43be-8725-2e95896da9a4}'
+	}
+}

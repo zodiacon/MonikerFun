@@ -1,0 +1,43 @@
+// MonikerFun.idl : IDL source for MonikerFun
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MonikerFun.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+//};
+[
+	object,
+	uuid(3ab0471f-2635-429d-95e9-f2baede2859e),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IWinProcess : IDispatch
+{
+	[id(1), propget] HRESULT Id([out, retval] DWORD* pId);
+	[id(2), propget] HRESULT ImagePath([out, retval] BSTR* path);
+	[id(3)] HRESULT Terminate([in] DWORD exitCode);
+};
+[
+	uuid(97a86fc5-ffef-4e80-88a0-fa3d1b438075),
+	version(1.0),
+]
+library MonikerFunLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(6ea3a80e-2936-43be-8725-2e95896da9a4)
+	]
+	coclass ProcessMoniker
+	{
+		[default] interface IMoniker;
+	};
+	interface IWinProcess;
+
+};
+
+import "shobjidl.idl";
+import "shobjidl.idl";
